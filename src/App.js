@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as firebase from 'firebase';
+import { RoomList } from './components/RoomList.js';
 
-class App extends Component {
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCr9x_CYXRNQfRxQkJoWdpsQzCYsUd52bg",
+    authDomain: "bloc-chat-ff868.firebaseapp.com",
+    databaseURL: "https://bloc-chat-ff868.firebaseio.com",
+    projectId: "bloc-chat-ff868",
+    storageBucket: "bloc-chat-ff868.appspot.com",
+    messagingSenderId: "164811569504"
+  };
+  firebase.initializeApp(config);
+
+class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -18,4 +31,6 @@ class App extends Component {
   }
 }
 
+
 export default App;
+
