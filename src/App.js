@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
-import { RoomList } from './components/RoomList.js';
+import { RoomList } from './components/RoomList';
 
   // Initialize Firebase
   var config = {
@@ -16,7 +16,7 @@ import { RoomList } from './components/RoomList.js';
   };
   firebase.initializeApp(config);
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <div className="App">
