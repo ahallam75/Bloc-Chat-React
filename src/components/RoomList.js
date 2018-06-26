@@ -18,7 +18,6 @@ export class RoomList extends Component {
   }
 
   render() {
-    { console.log(room.name) };
     {
     const roomList = this.state.rooms.map((room) =>
     <li key={room.key}>{room.name}</li>
@@ -28,6 +27,6 @@ export class RoomList extends Component {
     <ul>{roomList}</ul>
     </div>
     );
+    }
   }
-}
 }
