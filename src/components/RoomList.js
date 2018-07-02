@@ -4,7 +4,8 @@ export class RoomList extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      rooms: [] //Added per checkpoint 2 instructions.
+      title: "",
+      rooms: [] 
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
     this.handleChange = this.handleChange.bind(this);
@@ -18,7 +19,7 @@ export class RoomList extends Component {
   createRoom(e) {
     e.preventDefault();
     this.roomsRef.push({ name: this.state.title });
-    //this.setState({ title: "" });
+    this.setState({ title: "" });
   }
 
   componentDidMount() {
