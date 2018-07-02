@@ -4,7 +4,8 @@ export class RoomList extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      rooms: [] //Added per checkpoint 2 instructions.
+      title: "", 
+      rooms: []
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
     this.handleChange = this.handleChange.bind(this);
@@ -18,7 +19,7 @@ export class RoomList extends Component {
   createRoom(e) {
     e.preventDefault();
     this.roomsRef.push({ name: this.state.title });
-    //this.setState({ title: "" });
+    this.setState({ title: "" });  //This allows the text in create room textbox to disappear/reset after you create each room. Don't remove. 
   }
 
   componentDidMount() {
@@ -37,11 +38,14 @@ export class RoomList extends Component {
       </form>
     );
 
-    {
-    const roomList = this.state.rooms.map((room) =>
-    <li key={room.key}>{room.name}</li>
-    );
+    //const roomList = this.state.rooms.map((room) =>   **Probably can delete this eventually.**
+    //<li key={room.key}>{room.name}</li>
+    //);
 
+    const roomList = this.state.rooms.map((room) =>
+      <li key={room.key} onClick={(e) => this.selectRoom(room, e)}>{room.name}</li>
+    );
+    
     return (
     <div>
       <div>{roomForm}</div>
@@ -50,4 +54,3 @@ export class RoomList extends Component {
     );
     }
   }
-}
