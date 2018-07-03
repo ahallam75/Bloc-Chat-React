@@ -30,13 +30,11 @@ class App extends Component {
     const showMessages = this.state.activeRoom;
     return (
       <div>
-      <h1>{this.state.activeRoom.title || "Select A Room"}</h1>
-      <RoomList firebase={firebase} activeRoom={this.activeRoom} />
-      { showMessages ?
-      (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key}/>)
-      : (null)
-      }
-    </div>
+        <h1>{this.state.activeRoom.title || "Select A Room"}</h1>
+        <RoomList firebase={firebase} activeRoom={this.activeRoom} />
+        <MessageList firebase={firebase} activeRoom={this.state.activeRoom.key}/>
+      
+      </div>
     );
   }
 }

@@ -51,10 +51,10 @@ export class MessageList extends Component {
 
     const messageList = (
       this.state.messages.map((message) => {
-        if (message.roomId === activeRoom) {
+        //if (message.roomId === activeRoom) {
           return <li key={message.key}>{message.content}</li>
-        }
-        return null;
+        //}
+        //return null;
       })
     );
 

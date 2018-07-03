@@ -43,7 +43,7 @@ export class RoomList extends Component {
     //);
 
     const roomList = this.state.rooms.map((room) =>
-      <li key={room.key} onClick={(e) => this.selectRoom(room, e)}>{room.name}</li>
+      <li key={room.key} onClick={(e) => this.props.activeRoom(room, e)}>{room.name}</li>
     );
     
     return (
