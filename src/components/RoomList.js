@@ -18,7 +18,8 @@ export class RoomList extends Component {
 
   createRoom(e) {
     e.preventDefault();
-    this.setState({ title: "" });  //This allows the text in create room textbox to disappear/reset after you create each room. Don't remove. 
+    this.roomsRef.push({ name: this.state.title });
+    this.setState({ title: "" });  //This allows the text in create room textbox to disappear/reset after you create each room. DO NOT REMOVE! 
   }
 
   componentDidMount() {
