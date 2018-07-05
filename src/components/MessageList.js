@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 export class MessageList extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export class MessageList extends Component {
     this.setState({
       username: "user",
       content: e.target.value,
-      sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
+      sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
       roomId: this.props.activeRoom
     });
   }
@@ -24,7 +25,7 @@ export class MessageList extends Component {
     this.messagesRef.push({
       username: this.state.username,
       content: this.state.content,
-      sentAt: this.state.sentAt,
+      sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),  
       roomId: this.state.roomId
     });
     
@@ -41,7 +42,6 @@ export class MessageList extends Component {
 
   render() {
     const activeRoom = this.props.activeRoom;
-    //console.log(activeRoom);
 
     const messageBar = (
       <form onSubmit={this.createMessage}>
@@ -53,9 +53,7 @@ export class MessageList extends Component {
     const messageList = (
       this.state.messages.map((message) => {
         if (message.roomId === activeRoom) {
-          //console.log(message.roomId);
-          //console.log(activeRoom);
-          return <li key={message.key}>{message.content}</li>
+          return <li key={message.key}>{message.content} {message.sentAt}</li>
         }
         return null;
       })

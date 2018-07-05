@@ -23,17 +23,18 @@ class App extends Component {
   }
 
   activeRoom(room) {
-  this.setState({ activeRoom: room })
+    this.setState({ activeRoom: room })
+    console.log(this.state.activeRoom) //Remove eventually.
   }
 
   render() {
     const showMessages = this.state.activeRoom;
     return (
-      <div>
-        <h1>{this.state.activeRoom.title || "Select A Room"}</h1>
+     <div>
+        <h1>BLOC CHAT</h1>
+        <h2>{!this.state.activeRoom.name ? "Create or Select a Room" : this.state.activeRoom.name}</h2>
         <RoomList firebase={firebase} activeRoom={this.activeRoom} />
         <MessageList firebase={firebase} activeRoom={this.state.activeRoom.key}/>
-      
       </div>
     );
   }
