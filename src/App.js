@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   render() {
-    const showMessages = this.state.activeRoom;
     return (
      <div>
         <h1>BLOC CHAT</h1>
