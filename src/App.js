@@ -19,7 +19,11 @@ import { User } from './components/User.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {activeRoom: ""};
+    //this.state = {activeRoom: ""};
+    this.state = {
+      activeRoom: "",
+      user: ""
+    };
     this.activeRoom = this.activeRoom.bind(this);
     this.setUser = this.setUser.bind(this);
   }
@@ -37,7 +41,7 @@ class App extends Component {
      <div>
         <h1>BLOC CHAT!</h1>
         <h2>{!this.state.activeRoom.name ? "Create or Select a Room" : this.state.activeRoom.name}</h2>
-        <User firebase={firebase} setUser={this.setUser} />
+        <User firebase={firebase} setUser={this.setUser} user={this.state.user} />
         <RoomList firebase={firebase} activeRoom={this.activeRoom} />
         <MessageList firebase={firebase} activeRoom={this.state.activeRoom.key}/>
       </div>
