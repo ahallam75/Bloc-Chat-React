@@ -3,7 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import { RoomList } from './components/RoomList';
 import { MessageList } from './components/MessageList.js';
-import { User } from './components/SetUsername.js';
+import { User } from './components/User.js';
 
   // Initialize Firebase
   var config = {
