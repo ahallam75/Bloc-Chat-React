@@ -21,21 +21,7 @@ export class User extends Component {
       }, function(error) {
         console.error('Sign Out Error', error);
       });
-    //this.props.firebase.auth().signOut().then(() => {
-      //this.props.setUser(null);
-    //});
   }
-
- /* displayName() {
-    this.props.firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            console.log('This is the user: ', user)
-        } else {
-            // No user is signed in.
-            console.log('There is no logged in user');
-        }
-    });
-  } */
   
   componentDidMount() {
     this.props.firebase.auth().onAuthStateChanged(user => {
