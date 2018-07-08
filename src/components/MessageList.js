@@ -13,7 +13,7 @@ export class MessageList extends Component {
   handleChange(e) {
     e.preventDefault();
     this.setState({
-      username: "user",
+      username: this.props.user, //"user",
       content: e.target.value,
       sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
       roomId: this.props.activeRoom
@@ -53,7 +53,7 @@ export class MessageList extends Component {
     const messageList = (
       this.state.messages.map((message) => {
         if (message.roomId === activeRoom) {
-          return <li key={message.key}>{message.content} {message.sentAt}</li>
+          return <li key={message.key}>{message.content} {message.username} {message.sentAt}</li>
         }
         return null;
       })
