@@ -13,9 +13,9 @@ export class MessageList extends Component {
   handleChange(e) {
     e.preventDefault();
     this.setState({
-      username: this.props.user, //"user",
+      //username: "user",
       content: e.target.value,
-      sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      //sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
       roomId: this.props.activeRoom
     });
   }
@@ -23,7 +23,7 @@ export class MessageList extends Component {
   createMessage(e) {
     e.preventDefault();
     this.messagesRef.push({
-      username: this.state.username,
+      username: this.props.user ? this.props.user.displayName : "Guest",
       content: this.state.content,
       sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),  
       roomId: this.state.roomId
@@ -53,7 +53,7 @@ export class MessageList extends Component {
     const messageList = (
       this.state.messages.map((message) => {
         if (message.roomId === activeRoom) {
-          return <li key={message.key}>{message.content} {message.username} {message.sentAt}</li>
+          return <li key={message.key}>{message.content} {this.props.user ? this.props.user.displayName : "Guest"} {message.sentAt}</li>
         }
         return null;
       })
