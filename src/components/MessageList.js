@@ -13,9 +13,7 @@ export class MessageList extends Component {
   handleChange(e) {
     e.preventDefault();
     this.setState({
-      //username: "user",
       content: e.target.value,
-      //sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
       roomId: this.props.activeRoom
     });
   }
@@ -53,7 +51,7 @@ export class MessageList extends Component {
     const messageList = (
       this.state.messages.map((message) => {
         if (message.roomId === activeRoom) {
-          return <li key={message.key}>{message.content} {this.props.user ? this.props.user.displayName : "Guest"} {message.sentAt}</li>
+          return <li key={message.key}>{message.content} POSTED BY: {message.username} DATE/TIME: {message.sentAt}</li>
         }
         return null;
       })
@@ -61,8 +59,8 @@ export class MessageList extends Component {
 
     return(
       <div>
-        <div>{messageBar}</div>
-        <ul>{messageList}</ul>
+        <div>Send a Message! {messageBar}</div>
+        <ul>Messages: {messageList}</ul>
       </div>
     );
   }

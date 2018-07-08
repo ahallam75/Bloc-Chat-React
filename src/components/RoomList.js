@@ -44,8 +44,8 @@ export class RoomList extends Component {
     
     return (
     <div>
-      <div>{roomForm}</div>
-      <ul>{roomList}</ul>
+      <div>Create a Room: {roomForm}</div>
+      <ul>Chat Rooms: {roomList}</ul>
     </div>
     );
     }
