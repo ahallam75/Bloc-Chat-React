@@ -38,9 +38,11 @@ class App extends Component {
 
   render() {
     return (
-     <div>
-        <h1>BLOC CHAT!</h1>
-        <h2>{!this.state.activeRoom.name ? "Create or Select a Room" : this.state.activeRoom.name}</h2>
+      <div class="card border-dark mb-3">
+        <header class="card-header"><h1>BLOC CHAT!</h1></header>
+        <div class="container">
+          <h2>{!this.state.activeRoom.name ? "Create or Select a Room" : this.state.activeRoom.name}</h2>
+        </div>
         <User firebase={firebase} setUser={this.setUser} user={this.state.user} />
         <RoomList firebase={firebase} activeRoom={this.activeRoom} />
         <MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} user={this.state.user} />

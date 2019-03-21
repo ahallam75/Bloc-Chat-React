@@ -31,10 +31,10 @@ export class User extends Component {
   
     render() {
       return(
-        <div>
+        <div class="container">
           <h2>Current User: {this.props.user ? this.props.user.displayName : "Guest"} </h2>
-          <div>Please sign in: <button onClick={this.signIn}>Sign In</button></div>
-          <div>Don't forget to sign out: <button onClick={this.signOut}>Sign Out</button></div>
+          <div>Please sign in: <button onClick={this.signIn} class="btn btn btn-sm btn-primary">Sign In</button></div>
+          <div>Don't forget to sign out: <button onClick={this.signOut} class="btn btn btn-sm btn-danger">Sign Out</button></div>
         </div>
       )
     }

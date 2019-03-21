@@ -42,10 +42,12 @@ export class MessageList extends Component {
     const activeRoom = this.props.activeRoom;
 
     const messageBar = (
+      <div class="container">
       <form onSubmit={this.createMessage}>
         <input type="text" value={this.state.content} placeholder="Enter Message" onChange={this.handleChange}/>
-        <input type="submit" value="Send" />
+        <input type="submit" value="Send" class="btn btn-success btn-sm"/>
       </form>
+      </div>
     );
 
     const messageList = (
@@ -58,9 +60,9 @@ export class MessageList extends Component {
     );
 
     return(
-      <div>
+      <div class="container">
         <div>Send a Message! {messageBar}</div>
-        <ul>Messages: {messageList}</ul>
+        <div>Messages: {messageList}</div>
       </div>
     );
   }

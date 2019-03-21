@@ -32,21 +32,27 @@ export class RoomList extends Component {
 
   render() {
     const roomForm = (
+      <div class="container">
       <form onSubmit={this.createRoom}>
         <input type="text" value={this.state.title} placeholder="Enter Room Name" onChange={this.handleChange}/>
-        <input type="submit" value="Create" />
+        <input type="submit" value="Create" class="btn btn btn-sm btn-dark" />
       </form>
+      </div>
     );
 
     const roomList = this.state.rooms.map((room) =>
+    <div class="container">
       <li key={room.key} onClick={(e) => this.props.activeRoom(room, e)}>{room.name}</li>
+    </div>
     );
     
     return (
-    <div>
-      <div>Create a Room: {roomForm}</div>
-      <ul>Chat Rooms: {roomList}</ul>
-    </div>
+    
+      <div class="container">
+        <div>Create a Room: {roomForm}</div>
+        <ul>Chat Rooms: {roomList}</ul>
+      </div>
+    
     );
     }
   }
